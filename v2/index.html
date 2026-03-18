@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nabeel Sohail — AI & Full Stack Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+  <div class="scanline-sweep" id="scanline"></div>
+  <div class="noise-overlay"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="logo">
+        <span class="logo-prefix">sys</span><span class="logo-slash">/</span><span class="logo-name">nabeel</span><span class="logo-cursor-blink">_</span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-item"><span class="nav-num">00.</span>Home</a>
+        <a href="#about" class="nav-item"><span class="nav-num">01.</span>About</a>
+        <a href="#experience" class="nav-item"><span class="nav-num">02.</span>Experience</a>
+        <a href="#projects" class="nav-item"><span class="nav-num">03.</span>Projects</a>
+        <a href="#contact" class="btn-nav-cta"><i class="fas fa-terminal"></i> Contact</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-status">
+          <span class="status-dot"></span>
+          <span id="statusText" class="status-text">Initializing profile...</span>
+        </div>
+        <div class="hero-eyebrow">
+          <span class="eyebrow-bar"></span>
+          <span class="eyebrow-text">ENGINEER · BUILDER · LEADER</span>
+        </div>
+        <h1 class="hero-title">
+          <span class="ht-line">Mohammad</span>
+          <span class="ht-line ht-accent">Nabeel</span>
+          <span class="ht-line">Sohail</span>
+        </h1>
+        <div class="hero-terminal">
+          <div class="term-bar">
+            <span class="tc tc-r"></span><span class="tc tc-y"></span><span class="tc tc-g"></span>
+            <span class="term-title">terminal — zsh</span>
+          </div>
+          <div class="term-body">
+            <div class="term-line">
+              <span class="term-prompt">❯</span>
+              <span class="term-cmd" id="termCmd"></span><span class="term-blink">▋</span>
+            </div>
+            <div class="term-output" id="termOutput"></div>
+          </div>
+        </div>
+        <p class="hero-desc">I build intelligent systems, scalable web applications, and AI-powered platforms designed to solve real-world problems.</p>
+        <div class="hero-cta-row">
+          <a href="#projects" class="btn-primary-dark"><span>View My Work</span><i class="fas fa-arrow-right"></i></a>
+          <a href="#contact" class="btn-ghost-dark">Contact Me</a>
+        </div>
+        <div class="hero-metrics">
+          <div class="metric"><span class="mv">3<em>+</em></span><span class="mk">Years Exp</span></div>
+          <div class="msep"></div>
+          <div class="metric"><span class="mv">15<em>+</em></span><span class="mk">Projects</span></div>
+          <div class="msep"></div>
+          <div class="metric"><span class="mv">500<em>+</em></span><span class="mk">Community</span></div>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hud-frame">
+          <div class="hud-corner hc-tl"></div>
+          <div class="hud-corner hc-tr"></div>
+          <div class="hud-corner hc-bl"></div>
+          <div class="hud-corner hc-br"></div>
+          <div class="hud-tag-top">// ENGINEER.PROFILE</div>
+          <div class="hud-tag-bot">STATUS: ACTIVE</div>
+          <div class="hud-img">
+            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=700&q=85" alt="Developer workspace" loading="eager"/>
+            <div class="hud-scanbar"></div>
+          </div>
+          <div class="hud-pills">
+            <div class="hpill"><i class="fas fa-brain"></i> AI/ML</div>
+            <div class="hpill"><i class="fas fa-server"></i> Backend</div>
+            <div class="hpill"><i class="fas fa-layer-group"></i> Full Stack</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scrollhint">
+      <span>SCROLL</span>
+      <div class="sh-track"><div class="sh-dot"></div></div>
+    </div>
+  </section>
+
+  <!-- WHAT I DO -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="sh-meta"><span class="sh-idx">01</span><span class="sh-rule"></span></div>
+        <h2>What I <span class="accent">Do</span></h2>
+        <p>I specialize in building intelligent systems and scalable digital platforms.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card reveal rd-1">
+          <div class="svc-glow"></div>
+          <div class="svc-icon-wrap"><i class="fas fa-brain"></i></div>
+          <div class="svc-num">01</div>
+          <h3>AI & Computer Vision</h3>
+          <p>Development of AI-powered systems including computer vision solutions, automated detection systems, and intelligent surveillance platforms.</p>
+          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          <div class="cborder"></div>
+        </div>
+        <div class="svc-card reveal rd-2">
+          <div class="svc-glow"></div>
+          <div class="svc-icon-wrap"><i class="fas fa-server"></i></div>
+          <div class="svc-num">02</div>
+          <h3>Backend Engineering</h3>
+          <p>Designing robust backend systems, APIs, and scalable server architectures using modern frameworks and cloud-ready patterns.</p>
+          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          <div class="cborder"></div>
+        </div>
+        <div class="svc-card reveal rd-3">
+          <div class="svc-glow"></div>
+          <div class="svc-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+          <div class="svc-num">03</div>
+          <h3>Full Stack Applications</h3>
+          <p>Building complete web applications from architecture to deployment using modern development stacks and engineering best practices.</p>
+          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          <div class="cborder"></div>
+        </div>
+        <div class="svc-card reveal rd-4">
+          <div class="svc-glow"></div>
+          <div class="svc-icon-wrap"><i class="fas fa-users"></i></div>
+          <div class="svc-num">04</div>
+          <h3>Technical Leadership</h3>
+          <p>Leading developer communities and mentoring teams through technical initiatives, workshops, and collaborative engineering projects.</p>
+          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
+          <div class="cborder"></div>
+        </div>
+      </div>
+      <div class="sec-cta reveal"><a href="#about" class="btn-ghost-dark">Learn More About Me <i class="fas fa-arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img-col reveal">
+          <div class="about-frame">
+            <div class="af-corner af-tl"></div>
+            <div class="af-corner af-br"></div>
+            <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80" alt="Developer at work" loading="lazy"/>
+            <div class="af-info">
+              <span class="afi-label">Based in</span>
+              <span class="afi-val">Karachi, PK</span>
+            </div>
+            <div class="af-badge"><span class="afb-num">3+</span><span class="afb-txt">Years<br/>Engineering</span></div>
+          </div>
+        </div>
+        <div class="about-text-col reveal rd-2">
+          <div class="sec-head sec-head--left">
+            <div class="sh-meta"><span class="sh-idx">02</span><span class="sh-rule"></span></div>
+            <h2>About <span class="accent">Me</span></h2>
+          </div>
+          <p class="about-lead">Building Systems That Matter</p>
+          <p class="about-body">I am a Software Engineer and Computer Science student passionate about building intelligent systems and impactful technology. My work focuses on AI applications, backend engineering, and full-stack platforms that solve real-world problems.</p>
+          <p class="about-body">Beyond writing code, I lead developer communities, speak at tech events, and train the next generation of engineers — because great technology is also about people.</p>
+          <div class="skill-chips">
+            <span><i class="fas fa-check"></i> AI & Machine Learning</span>
+            <span><i class="fas fa-check"></i> Backend Architecture</span>
+            <span><i class="fas fa-check"></i> System Design</span>
+            <span><i class="fas fa-check"></i> Community Leadership</span>
+          </div>
+          <a href="#experience" class="btn-primary-dark">Read Full Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section class="experience" id="experience">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="sh-meta"><span class="sh-idx">03</span><span class="sh-rule"></span></div>
+        <h2>Professional <span class="accent">Experience</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-left">
+            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
+            <div class="tl-spine"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tlc-header">
+              <div><h3>Software Engineer</h3><span class="tl-org"><i class="fas fa-building"></i> Dawat-e-Islami</span></div>
+              <span class="tl-date">2023 — Present</span>
+            </div>
+            <ul class="tl-list">
+              <li>Developed and maintained scalable backend systems and APIs</li>
+              <li>Built full-stack web applications serving thousands of users</li>
+              <li>Collaborated with cross-functional teams using Git-based workflows</li>
+              <li>Integrated AI capabilities into production-grade systems</li>
+            </ul>
+            <div class="tl-tech"><span>Django</span><span>Laravel</span><span>Python</span><span>MySQL</span></div>
+            <div class="cborder"></div>
+          </div>
+        </div>
+        <div class="tl-item reveal rd-2">
+          <div class="tl-left">
+            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
+            <div class="tl-spine"></div>
+          </div>
+          <div class="tl-card">
+            <div class="tlc-header">
+              <div><h3>AI Systems Developer</h3><span class="tl-org"><i class="fas fa-robot"></i> Freelance / Projects</span></div>
+              <span class="tl-date">2022 — 2023</span>
+            </div>
+            <ul class="tl-list">
+              <li>Architected AI-based CCTV surveillance system with real-time detection</li>
+              <li>Implemented YOLO-based computer vision pipelines</li>
+              <li>Delivered event management AI platform for community use</li>
+            </ul>
+            <div class="tl-tech"><span>Python</span><span>YOLO</span><span>OpenCV</span><span>FastAPI</span></div>
+            <div class="cborder"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sec-cta reveal"><a href="#" class="btn-ghost-dark">View Full Experience <i class="fas fa-arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP -->
+  <section class="leadership" id="leadership">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="sh-meta"><span class="sh-idx">04</span><span class="sh-rule"></span></div>
+        <h2>Leadership & <span class="accent">Community</span></h2>
+        <p>Building the tech community — one initiative at a time.</p>
+      </div>
+      <div class="lead-grid">
+        <div class="lead-card reveal rd-1">
+          <div class="lead-icon-wrap"><i class="fas fa-microchip"></i></div>
+          <span class="lead-role">CHAIRPERSON</span>
+          <h3>IEEE SSUET SB</h3>
+          <p>Leading the IEEE Student Branch at SSUET, organizing technical events, workshops, and engineering initiatives.</p>
+          <div class="cborder"></div>
+        </div>
+        <div class="lead-card reveal rd-2">
+          <div class="lead-icon-wrap"><i class="fas fa-code"></i></div>
+          <span class="lead-role">CHAIRPERSON</span>
+          <h3>ACM SSUET</h3>
+          <p>Heading the ACM chapter, driving competitive programming, hackathons, and developer-focused programs.</p>
+          <div class="cborder"></div>
+        </div>
+        <div class="lead-card reveal rd-3">
+          <div class="lead-icon-wrap"><i class="fab fa-google"></i></div>
+          <span class="lead-role">MARKETING LEAD</span>
+          <h3>GDG on Campus</h3>
+          <p>Driving outreach and growth for Google Developer Group, connecting students to Google's ecosystem.</p>
+          <div class="cborder"></div>
+        </div>
+      </div>
+      <div class="sec-cta reveal"><a href="#" class="btn-ghost-dark">Explore Leadership Experience <i class="fas fa-arrow-right"></i></a></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="sh-meta"><span class="sh-idx">05</span><span class="sh-rule"></span></div>
+        <h2>Featured <span class="accent">Projects</span></h2>
+        <p>Selected builds from my engineering portfolio.</p>
+      </div>
+      <div class="proj-grid">
+        <div class="proj-card reveal rd-1">
+          <div class="proj-vis pvis-1">
+            <div class="pv-gridlines"></div>
+            <div class="pv-num">01</div>
+            <div class="pv-icon"><i class="fas fa-video"></i></div>
+            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
+          </div>
+          <div class="proj-info">
+            <div class="pi-meta"><span class="pi-cat">AI / Computer Vision</span><span class="pi-yr">2024</span></div>
+            <h3>AI CCTV Surveillance System</h3>
+            <p>AI-based system for detecting suspicious activities in CCTV footage using real-time computer vision.</p>
+            <div class="pi-tags"><span>Python</span><span>YOLO</span><span>OpenCV</span><span>Django</span></div>
+          </div>
+          <div class="cborder"></div>
+        </div>
+        <div class="proj-card reveal rd-2">
+          <div class="proj-vis pvis-2">
+            <div class="pv-gridlines"></div>
+            <div class="pv-num">02</div>
+            <div class="pv-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
+          </div>
+          <div class="proj-info">
+            <div class="pi-meta"><span class="pi-cat">AI / Platform</span><span class="pi-yr">2023</span></div>
+            <h3>EventBridgeAI</h3>
+            <p>AI-powered event discovery and management platform designed to connect communities and organizations.</p>
+            <div class="pi-tags"><span>Laravel</span><span>Python</span><span>AI APIs</span><span>VectorDB</span></div>
+          </div>
+          <div class="cborder"></div>
+        </div>
+        <div class="proj-card reveal rd-3">
+          <div class="proj-vis pvis-3">
+            <div class="pv-gridlines"></div>
+            <div class="pv-num">03</div>
+            <div class="pv-icon"><i class="fas fa-film"></i></div>
+            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
+          </div>
+          <div class="proj-info">
+            <div class="pi-meta"><span class="pi-cat">Full Stack</span><span class="pi-yr">2023</span></div>
+            <h3>WatchHub</h3>
+            <p>Entertainment tracking platform for managing movies, series, and viewing history with smart recommendations.</p>
+            <div class="pi-tags"><span>Laravel</span><span>Django</span><span>MySQL</span></div>
+          </div>
+          <div class="cborder"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="techstack" id="stack">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="sh-meta"><span class="sh-idx">06</span><span class="sh-rule"></span></div>
+        <h2>Technologies I <span class="accent">Work With</span></h2>
+      </div>
+      <div class="tech-grid reveal">
+        <div class="tech-pill"><i class="fab fa-python"></i><span>Python</span></div>
+        <div class="tech-pill"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+        <div class="tech-pill"><i class="fas fa-leaf"></i><span>Django</span></div>
+        <div class="tech-pill"><i class="fab fa-docker"></i><span>Docker</span></div>
+        <div class="tech-pill"><i class="fas fa-database"></i><span>MySQL</span></div>
+        <div class="tech-pill"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
+        <div class="tech-pill"><i class="fab fa-git-alt"></i><span>Git</span></div>
+        <div class="tech-pill"><i class="fab fa-linux"></i><span>Linux</span></div>
+        <div class="tech-pill"><i class="fas fa-eye"></i><span>OpenCV</span></div>
+        <div class="tech-pill"><i class="fas fa-brain"></i><span>YOLO/AI</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-sec" id="contact">
+    <div class="cta-bg-grid"></div>
+    <div class="cta-glow-l"></div>
+    <div class="cta-glow-r"></div>
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-status"><span class="status-dot"></span> Available for opportunities</div>
+        <h2 class="cta-title">Interested in building<br/><span class="accent">intelligent systems</span><br/>or scalable platforms?</h2>
+        <p class="cta-body">Whether it's a product idea, a collaboration, or just a conversation — I'm always open to connecting with builders and innovators.</p>
+        <div class="cta-btns">
+          <a href="mailto:nabeel@example.com" class="btn-primary-dark"><i class="fas fa-handshake"></i> Work With Me</a>
+          <a href="mailto:nabeel@example.com" class="btn-ghost-dark"><i class="fas fa-envelope"></i> Contact Me</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="#hero" class="logo"><span class="logo-prefix">sys</span><span class="logo-slash">/</span><span class="logo-name">nabeel</span><span class="logo-cursor-blink">_</span></a>
+          <p>Software Engineer · AI Developer<br/>Building systems that think.</p>
+        </div>
+        <div class="footer-nav">
+          <h4>Navigation</h4>
+          <a href="#hero">Home</a>
+          <a href="#about">About</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+        </div>
+        <div class="footer-social">
+          <h4>Connect</h4>
+          <div class="social-icons">
+            <a href="#" class="si" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" class="si" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="mailto:nabeel@example.com" class="si" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="fb-line"></div>
+        <span>© 2025 Mohammad Nabeel Sohail · Crafted with precision</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

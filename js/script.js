@@ -155,26 +155,28 @@ revealEls.forEach(el => revealObs.observe(el));
     {
       cmd: 'nabeel --info',
       output: [
-        { label: 'name',   val: 'Mohammad Nabeel Sohail' },
-        { label: 'role',   val: 'AI & Full Stack Engineer' },
-        { label: 'status', val: 'available for opportunities' },
+        { label: 'name',    val: 'Mohammad Nabeel Sohail' },
+        { label: 'role',    val: 'Senior AI Engineer · Team Lead' },
+        { label: 'company', val: 'FTech Solutions — Dawat-e-Islami' },
+        { label: 'status',  val: 'open to international opportunities' },
       ]
     },
     {
       cmd: 'nabeel --stack',
       output: [
-        { label: 'ai',      val: 'Python · YOLO · OpenCV · Django' },
-        { label: 'backend', val: 'Laravel · FastAPI · MySQL' },
-        { label: 'infra',   val: 'Docker · Linux · Git' },
+        { label: 'ai',       val: 'LLMs · RAG · Agentic AI · NLP · Vision' },
+        { label: 'backend',  val: 'Python · Django · FastAPI · Flask' },
+        { label: 'fullstack',val: 'MERN · TypeScript · REST APIs' },
+        { label: 'infra',    val: 'AWS · Docker · CI/CD · PostgreSQL' },
       ]
     },
     {
       cmd: 'nabeel --leadership',
       output: [
-        { label: 'ieee',    val: 'Former Chairperson @ SSUET SB' },
-        { label: 'acm',     val: 'Former Chairperson @ SSUET' },
-        { label: 'gdg',     val: 'Former Communication & Marketing Lead @ GDG Campus' },
-        { label: 'pafla',     val: 'Team Member @ Karachi' },
+        { label: 'ieee',  val: 'Vice Chair @ IEEE SSUET SB' },
+        { label: 'acm',   val: 'Vice Chair @ ACM SSUET' },
+        { label: 'gdg',   val: 'Comm & Marketing Lead @ GDGoC SSUET' },
+        { label: 'smec',  val: 'Director Geeks & Mentor @ SMEC\'25' },
       ]
     }
   ];
@@ -275,6 +277,10 @@ document.querySelectorAll('.proj-card, .svc-card').forEach(card => {
     card.style.transform = '';
   });
 });
+
+// ---- DYNAMIC FOOTER YEAR ----
+const yearEl = document.getElementById('footerYear');
+if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 // ---- TECH PILL STAGGER ON SCROLL ----
 const techObs = new IntersectionObserver(entries => {

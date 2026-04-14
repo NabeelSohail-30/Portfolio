@@ -1,481 +1,915 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mohammad Nabeel Sohail — Senior AI Engineer & Team Lead</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="css/style.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohammad Nabeel Sohail — Senior AI Engineer & Team Lead</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="scanline-sweep" id="scanline"></div>
+    <div class="noise-overlay"></div>
 
-  <div class="cursor" id="cursor"></div>
-  <div class="cursor-follower" id="cursorFollower"></div>
-  <div class="scanline-sweep" id="scanline"></div>
-  <div class="noise-overlay"></div>
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#hero" class="logo">
+          <span class="logo-prefix">sys</span><span class="logo-slash">/</span
+          ><span class="logo-name">nabeel</span
+          ><span class="logo-cursor-blink">_</span>
+        </a>
+        <nav class="nav-links" id="navLinks">
+          <a href="#hero" class="nav-item"
+            ><span class="nav-num">00.</span>Home</a
+          >
+          <a href="#about" class="nav-item"
+            ><span class="nav-num">01.</span>About</a
+          >
+          <a href="#experience" class="nav-item"
+            ><span class="nav-num">02.</span>Experience</a
+          >
+          <a href="#projects" class="nav-item"
+            ><span class="nav-num">03.</span>Projects</a
+          >
+          <a href="#contact" class="btn-nav-cta"
+            ><i class="fas fa-terminal"></i> Contact</a
+          >
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </header>
 
-  <!-- NAVBAR -->
-  <header class="navbar" id="navbar">
-    <div class="nav-container">
-      <a href="#hero" class="logo">
-        <span class="logo-prefix">sys</span><span class="logo-slash">/</span><span class="logo-name">nabeel</span><span class="logo-cursor-blink">_</span>
-      </a>
-      <nav class="nav-links" id="navLinks">
-        <a href="#hero" class="nav-item"><span class="nav-num">00.</span>Home</a>
-        <a href="#about" class="nav-item"><span class="nav-num">01.</span>About</a>
-        <a href="#experience" class="nav-item"><span class="nav-num">02.</span>Experience</a>
-        <a href="#projects" class="nav-item"><span class="nav-num">03.</span>Projects</a>
-        <a href="#contact" class="btn-nav-cta"><i class="fas fa-terminal"></i> Contact</a>
-      </nav>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <canvas id="particleCanvas"></canvas>
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-status">
-          <span class="status-dot"></span>
-          <span id="statusText" class="status-text">Initializing profile...</span>
-        </div>
-        <div class="hero-eyebrow">
-          <span class="eyebrow-bar"></span>
-          <span class="eyebrow-text">AI TEAM LEAD · SENIOR ENGINEER · BUILDER</span>
-        </div>
-        <h1 class="hero-title">
-          <span class="ht-line">Mohammad</span>
-          <span class="ht-line ht-accent">Nabeel</span>
-          <span class="ht-line">Sohail</span>
-        </h1>
-        <div class="hero-terminal">
-          <div class="term-bar">
-            <span class="tc tc-r"></span><span class="tc tc-y"></span><span class="tc tc-g"></span>
-            <span class="term-title">terminal — zsh</span>
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <canvas id="particleCanvas"></canvas>
+      <div class="hero-inner">
+        <div class="hero-left">
+          <div class="hero-status">
+            <span class="status-dot"></span>
+            <span id="statusText" class="status-text"
+              >Initializing profile...</span
+            >
           </div>
-          <div class="term-body">
-            <div class="term-line">
-              <span class="term-prompt">❯</span>
-              <span class="term-cmd" id="termCmd"></span><span class="term-blink">▋</span>
+          <div class="hero-eyebrow">
+            <span class="eyebrow-bar"></span>
+            <span class="eyebrow-text"
+              >AI TEAM LEAD · SENIOR ENGINEER · BUILDER</span
+            >
+          </div>
+          <h1 class="hero-title">
+            <span class="ht-line">Mohammad</span>
+            <span class="ht-line ht-accent">Nabeel</span>
+            <span class="ht-line">Sohail</span>
+          </h1>
+          <div class="hero-terminal">
+            <div class="term-bar">
+              <span class="tc tc-r"></span><span class="tc tc-y"></span
+              ><span class="tc tc-g"></span>
+              <span class="term-title">terminal — zsh</span>
             </div>
-            <div class="term-output" id="termOutput"></div>
-          </div>
-        </div>
-        <p class="hero-desc">I architect and ship enterprise-grade AI systems — LLMs, RAG pipelines, agentic workflows — used by millions. Currently leading AI at FTech Solutions while delivering full-stack solutions for global clients.</p>
-        <div class="hero-cta-row">
-          <a href="#projects" class="btn-primary-dark"><span>View My Work</span><i class="fas fa-arrow-right"></i></a>
-          <a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download><i class="fas fa-download"></i> Download CV</a>
-          <a href="#contact" class="btn-ghost-dark">Contact Me</a>
-        </div>
-        <div class="hero-metrics">
-          <div class="metric"><span class="mv">3<em>+</em></span><span class="mk">Years Exp</span></div>
-          <div class="msep"></div>
-          <div class="metric"><span class="mv">15<em>+</em></span><span class="mk">Projects</span></div>
-          <div class="msep"></div>
-          <div class="metric"><span class="mv">500<em>+</em></span><span class="mk">Community</span></div>
-        </div>
-      </div>
-      <div class="hero-right">
-        <div class="hud-frame">
-          <div class="hud-corner hc-tl"></div>
-          <div class="hud-corner hc-tr"></div>
-          <div class="hud-corner hc-bl"></div>
-          <div class="hud-corner hc-br"></div>
-          <div class="hud-tag-top">// ENGINEER.PROFILE</div>
-          <div class="hud-tag-bot">STATUS: ACTIVE</div>
-          <div class="hud-img">
-            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=700&q=85" alt="Developer workspace" loading="eager"/>
-            <div class="hud-scanbar"></div>
-          </div>
-          <div class="hud-pills">
-            <div class="hpill"><i class="fas fa-brain"></i> GenAI / LLMs</div>
-            <div class="hpill"><i class="fas fa-server"></i> Backend</div>
-            <div class="hpill"><i class="fas fa-layer-group"></i> Full Stack</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scrollhint">
-      <span>SCROLL</span>
-      <div class="sh-track"><div class="sh-dot"></div></div>
-    </div>
-  </section>
-
-  <!-- WHAT I DO -->
-  <section class="services" id="services">
-    <div class="container">
-      <div class="sec-head reveal">
-        <div class="sh-meta"><span class="sh-idx">01</span><span class="sh-rule"></span></div>
-        <h2>What I <span class="accent">Do</span></h2>
-        <p>I specialize in building intelligent systems, scalable platforms, and leading the engineers who ship them.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="svc-card reveal rd-1">
-          <div class="svc-glow"></div>
-          <div class="svc-icon-wrap"><i class="fas fa-brain"></i></div>
-          <div class="svc-num">01</div>
-          <h3>AI & GenAI Systems</h3>
-          <p>Architecting and shipping production-grade AI — LLM integrations, RAG pipelines, agentic workflows, NLP systems, computer vision, and voice AI serving millions of users.</p>
-          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
-          <div class="cborder"></div>
-        </div>
-        <div class="svc-card reveal rd-2">
-          <div class="svc-glow"></div>
-          <div class="svc-icon-wrap"><i class="fas fa-server"></i></div>
-          <div class="svc-num">02</div>
-          <h3>Backend Engineering</h3>
-          <p>Designing robust backend systems, scalable REST APIs, and cloud-ready architectures using Python, Django, FastAPI, and AWS — built for performance and reliability at scale.</p>
-          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
-          <div class="cborder"></div>
-        </div>
-        <div class="svc-card reveal rd-3">
-          <div class="svc-glow"></div>
-          <div class="svc-icon-wrap"><i class="fas fa-laptop-code"></i></div>
-          <div class="svc-num">03</div>
-          <h3>Full Stack Development</h3>
-          <p>Building complete web applications end-to-end — MERN stack, Django/FastAPI backends, responsive frontends, cloud deployment, and CI/CD pipelines ready for production.</p>
-          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
-          <div class="cborder"></div>
-        </div>
-        <div class="svc-card reveal rd-4">
-          <div class="svc-glow"></div>
-          <div class="svc-icon-wrap"><i class="fas fa-users"></i></div>
-          <div class="svc-num">04</div>
-          <h3>Technical Leadership</h3>
-          <p>Leading AI engineering teams, setting technical direction, and mentoring engineers — combined with years of community leadership across IEEE, ACM, GDG, and national tech events.</p>
-          <div class="svc-foot"><i class="fas fa-arrow-up-right-from-square"></i></div>
-          <div class="cborder"></div>
-        </div>
-      </div>
-      <div class="sec-cta reveal"><a href="#about" class="btn-ghost-dark">Learn More About Me <i class="fas fa-arrow-right"></i></a></div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-img-col reveal">
-          <div class="about-frame">
-            <div class="af-corner af-tl"></div>
-            <div class="af-corner af-br"></div>
-            <img src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80" alt="Developer at work" loading="lazy"/>
-            <div class="af-info">
-              <span class="afi-label">Based in</span>
-              <span class="afi-val">Karachi, PK</span>
+            <div class="term-body">
+              <div class="term-line">
+                <span class="term-prompt">❯</span>
+                <span class="term-cmd" id="termCmd"></span
+                ><span class="term-blink">▋</span>
+              </div>
+              <div class="term-output" id="termOutput"></div>
             </div>
-            <div class="af-badge"><span class="afb-num">3+</span><span class="afb-txt">Years<br/>Engineering</span></div>
           </div>
-        </div>
-        <div class="about-text-col reveal rd-2">
-          <div class="sec-head sec-head--left">
-            <div class="sh-meta"><span class="sh-idx">02</span><span class="sh-rule"></span></div>
-            <h2>About <span class="accent">Me</span></h2>
+          <p class="hero-desc">
+            I architect and ship enterprise-grade AI systems — LLMs, RAG
+            pipelines, agentic workflows — used by millions. Currently leading
+            AI at FTech Solutions while delivering full-stack solutions for
+            global clients.
+          </p>
+          <div class="hero-cta-row">
+            <a href="#projects" class="btn-primary-dark"
+              ><span>View My Work</span><i class="fas fa-arrow-right"></i
+            ></a>
+            <a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download
+              ><i class="fas fa-download"></i> Download CV</a
+            >
+            <a href="#contact" class="btn-ghost-dark">Contact Me</a>
           </div>
-          <p class="about-lead">Building AI That Scales to Millions</p>
-          <p class="about-body">I'm a Senior AI & Full-Stack Engineer and AI Team Lead at FTech Solutions — the enterprise tech arm of Dawat-e-Islami — where I architect and ship production AI systems used by millions globally. Born in the UK, raised in Kuwait, and based in Karachi, I bring a multicultural lens to every system I build.</p>
-          <p class="about-body">Beyond production AI, I run a freelance consultancy, previously lectured Computer Science, and have spent years building technical communities at SSUET through IEEE, ACM, and GDG — because great technology is also about the people you bring along.</p>
-          <div class="skill-chips">
-            <span><i class="fas fa-check"></i> GenAI & LLMs</span>
-            <span><i class="fas fa-check"></i> Backend Architecture</span>
-            <span><i class="fas fa-check"></i> Full-Stack Engineering</span>
-            <span><i class="fas fa-check"></i> Team Leadership</span>
-          </div>
-          <a href="#experience" class="btn-primary-dark">Read Full Story <i class="fas fa-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section class="experience" id="experience">
-    <div class="container">
-      <div class="sec-head reveal">
-        <div class="sh-meta"><span class="sh-idx">03</span><span class="sh-rule"></span></div>
-        <h2>Professional <span class="accent">Experience</span></h2>
-      </div>
-      <div class="timeline">
-        <div class="tl-item reveal">
-          <div class="tl-left">
-            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
-            <div class="tl-spine"></div>
-          </div>
-          <div class="tl-card">
-            <div class="tlc-header">
-              <div><h3>Senior Software Engineer – AI Team Lead</h3><span class="tl-org"><i class="fas fa-building"></i> FTech Solutions — Dawat-e-Islami</span></div>
-              <span class="tl-date">June 2025 — Present</span>
+          <div class="hero-metrics">
+            <div class="metric">
+              <span class="mv">3<em>+</em></span
+              ><span class="mk">Years Exp</span>
             </div>
-            <ul class="tl-list">
-              <li>Leading the AI division in developing and deploying enterprise-scale AI solutions across platforms serving millions of users globally</li>
-              <li>Architecting GenAI, Agentic AI, and LLM solutions — RAG pipelines, fine-tuning, and prompt optimization for production use cases</li>
-              <li>Managing team operations including sprint planning, task allocation, code reviews, and technical direction</li>
-              <li>Designing CI/CD pipelines for secure, scalable deployment of AI models and microservices on AWS</li>
-              <li>Collaborating cross-functionally to integrate AI modules into production web and mobile applications</li>
-            </ul>
-            <div class="tl-tech"><span>Python</span><span>LLMs</span><span>RAG</span><span>FastAPI</span><span>AWS</span><span>Docker</span><span>PostgreSQL</span></div>
+            <div class="msep"></div>
+            <div class="metric">
+              <span class="mv">15<em>+</em></span
+              ><span class="mk">Projects</span>
+            </div>
+            <div class="msep"></div>
+            <div class="metric">
+              <span class="mv">500<em>+</em></span
+              ><span class="mk">Community</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hud-frame">
+            <div class="hud-corner hc-tl"></div>
+            <div class="hud-corner hc-tr"></div>
+            <div class="hud-corner hc-bl"></div>
+            <div class="hud-corner hc-br"></div>
+            <div class="hud-tag-top">// ENGINEER.PROFILE</div>
+            <div class="hud-tag-bot">STATUS: ACTIVE</div>
+            <div class="hud-img">
+              <img
+                src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=700&q=85"
+                alt="Developer workspace"
+                loading="eager"
+              />
+              <div class="hud-scanbar"></div>
+            </div>
+            <div class="hud-pills">
+              <div class="hpill"><i class="fas fa-brain"></i> AI</div>
+              <div class="hpill"><i class="fas fa-server"></i> Backend</div>
+              <div class="hpill">
+                <i class="fas fa-layer-group"></i> Full Stack
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scrollhint">
+        <span>SCROLL</span>
+        <div class="sh-track"><div class="sh-dot"></div></div>
+      </div>
+    </section>
+
+    <!-- WHAT I DO -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sh-meta">
+            <span class="sh-idx">01</span><span class="sh-rule"></span>
+          </div>
+          <h2>What I <span class="accent">Do</span></h2>
+          <p>
+            I specialize in building intelligent systems, scalable platforms,
+            and leading the engineers who ship them.
+          </p>
+        </div>
+        <div class="svc-grid">
+          <div class="svc-card reveal rd-1">
+            <div class="svc-glow"></div>
+            <div class="svc-icon-wrap"><i class="fas fa-brain"></i></div>
+            <div class="svc-num">01</div>
+            <h3>AI & GenAI Systems</h3>
+            <p>
+              Architecting and shipping production-grade AI — LLM integrations,
+              RAG pipelines, agentic workflows, NLP systems, computer vision,
+              and voice AI serving millions of users.
+            </p>
+            <div class="svc-foot">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
+            <div class="cborder"></div>
+          </div>
+          <div class="svc-card reveal rd-2">
+            <div class="svc-glow"></div>
+            <div class="svc-icon-wrap"><i class="fas fa-server"></i></div>
+            <div class="svc-num">02</div>
+            <h3>Backend Engineering</h3>
+            <p>
+              Designing robust backend systems, scalable REST APIs, and
+              cloud-ready architectures using Python, Django, FastAPI, and AWS —
+              built for performance and reliability at scale.
+            </p>
+            <div class="svc-foot">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
+            <div class="cborder"></div>
+          </div>
+          <div class="svc-card reveal rd-3">
+            <div class="svc-glow"></div>
+            <div class="svc-icon-wrap"><i class="fas fa-laptop-code"></i></div>
+            <div class="svc-num">03</div>
+            <h3>Full Stack Development</h3>
+            <p>
+              Building complete web applications end-to-end — MERN stack,
+              Django/FastAPI backends, responsive frontends, cloud deployment,
+              and CI/CD pipelines ready for production.
+            </p>
+            <div class="svc-foot">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
+            <div class="cborder"></div>
+          </div>
+          <div class="svc-card reveal rd-4">
+            <div class="svc-glow"></div>
+            <div class="svc-icon-wrap"><i class="fas fa-users"></i></div>
+            <div class="svc-num">04</div>
+            <h3>Technical Leadership</h3>
+            <p>
+              Leading AI engineering teams, setting technical direction, and
+              mentoring engineers — combined with years of community leadership
+              across IEEE, ACM, GDG, and national tech events.
+            </p>
+            <div class="svc-foot">
+              <i class="fas fa-arrow-up-right-from-square"></i>
+            </div>
             <div class="cborder"></div>
           </div>
         </div>
-        <div class="tl-item reveal rd-2">
-          <div class="tl-left">
-            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
-            <div class="tl-spine"></div>
-          </div>
-          <div class="tl-card">
-            <div class="tlc-header">
-              <div><h3>Freelance AI & Full-Stack Engineer · Team Lead</h3><span class="tl-org"><i class="fas fa-globe"></i> Independent Consultancy</span></div>
-              <span class="tl-date">Ongoing</span>
+        <div class="sec-cta reveal">
+          <a href="#about" class="btn-ghost-dark"
+            >Learn More About Me <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-img-col reveal">
+            <div class="about-frame">
+              <div class="af-corner af-tl"></div>
+              <div class="af-corner af-br"></div>
+              <img
+                src="https://images.unsplash.com/photo-1607799279861-4dd421887fb3?w=600&q=80"
+                alt="Developer at work"
+                loading="lazy"
+              />
+              <div class="af-info">
+                <span class="afi-label">Based in</span>
+                <span class="afi-val">Karachi, PK</span>
+              </div>
+              <div class="af-badge">
+                <span class="afb-num">3+</span
+                ><span class="afb-txt">Years<br />Engineering</span>
+              </div>
             </div>
-            <ul class="tl-list">
-              <li>Leading a freelance team delivering AI, full-stack, and automation solutions for national and international clients</li>
-              <li>Delivering end-to-end AI solutions — chatbots, NLP tools, LLM applications, RAG systems, and computer vision pipelines</li>
-              <li>Building full-stack applications using MERN and Django/FastAPI with cloud deployment on AWS</li>
-              <li>Managing client relationships, project scoping, timelines, and quality assurance across concurrent projects</li>
-            </ul>
-            <div class="tl-tech"><span>Python</span><span>MERN</span><span>Django</span><span>FastAPI</span><span>AWS</span><span>LLMs</span><span>RAG</span></div>
+          </div>
+          <div class="about-text-col reveal rd-2">
+            <div class="sec-head sec-head--left">
+              <div class="sh-meta">
+                <span class="sh-idx">02</span><span class="sh-rule"></span>
+              </div>
+              <h2>About <span class="accent">Me</span></h2>
+            </div>
+            <p class="about-lead">Building AI That Scales to Millions</p>
+            <p class="about-body">
+              I'm a Senior AI & Full-Stack Engineer and AI Team Lead at FTech
+              Solutions — the enterprise tech arm of Dawat-e-Islami — where I
+              architect and ship production AI systems used by millions
+              globally. Born in the UK, raised in Kuwait, and based in Karachi,
+              I bring a multicultural lens to every system I build.
+            </p>
+            <p class="about-body">
+              Beyond production AI, I run a freelance consultancy, previously
+              lectured Computer Science, and have spent years building technical
+              communities at SSUET through IEEE, ACM, and GDG — because great
+              technology is also about the people you bring along.
+            </p>
+            <div class="skill-chips">
+              <span><i class="fas fa-check"></i> GenAI & LLMs</span>
+              <span><i class="fas fa-check"></i> Backend Architecture</span>
+              <span><i class="fas fa-check"></i> Full-Stack Engineering</span>
+              <span><i class="fas fa-check"></i> Team Leadership</span>
+            </div>
+            <a href="#experience" class="btn-primary-dark"
+              >Read Full Story <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience" id="experience">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sh-meta">
+            <span class="sh-idx">03</span><span class="sh-rule"></span>
+          </div>
+          <h2>Professional <span class="accent">Experience</span></h2>
+        </div>
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-left">
+              <div class="tl-node">
+                <div class="tn-hex"></div>
+                <div class="tn-pulse"></div>
+              </div>
+              <div class="tl-spine"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tlc-header">
+                <div>
+                  <h3>Senior Software Engineer – AI Team Lead</h3>
+                  <span class="tl-org"
+                    ><i class="fas fa-building"></i> FTech Solutions —
+                    Dawat-e-Islami</span
+                  >
+                </div>
+                <span class="tl-date">June 2025 — Present</span>
+              </div>
+              <ul class="tl-list">
+                <li>
+                  Leading the AI division in developing and deploying
+                  enterprise-scale AI solutions across platforms serving
+                  millions of users globally
+                </li>
+                <li>
+                  Architecting GenAI, Agentic AI, and LLM solutions — RAG
+                  pipelines, fine-tuning, and prompt optimization for production
+                  use cases
+                </li>
+                <li>
+                  Managing team operations including sprint planning, task
+                  allocation, code reviews, and technical direction
+                </li>
+                <li>
+                  Designing CI/CD pipelines for secure, scalable deployment of
+                  AI models and microservices on AWS
+                </li>
+                <li>
+                  Collaborating cross-functionally to integrate AI modules into
+                  production web and mobile applications
+                </li>
+              </ul>
+              <div class="tl-tech">
+                <span>Python</span><span>LLMs</span><span>RAG</span
+                ><span>FastAPI</span><span>AWS</span><span>Docker</span
+                ><span>PostgreSQL</span>
+              </div>
+              <div class="cborder"></div>
+            </div>
+          </div>
+          <div class="tl-item reveal rd-2">
+            <div class="tl-left">
+              <div class="tl-node">
+                <div class="tn-hex"></div>
+                <div class="tn-pulse"></div>
+              </div>
+              <div class="tl-spine"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tlc-header">
+                <div>
+                  <h3>Freelance AI & Full-Stack Engineer · Team Lead</h3>
+                  <span class="tl-org"
+                    ><i class="fas fa-globe"></i> Independent Consultancy</span
+                  >
+                </div>
+                <span class="tl-date">Ongoing</span>
+              </div>
+              <ul class="tl-list">
+                <li>
+                  Leading a freelance team delivering AI, full-stack, and
+                  automation solutions for national and international clients
+                </li>
+                <li>
+                  Delivering end-to-end AI solutions — chatbots, NLP tools, LLM
+                  applications, RAG systems, and computer vision pipelines
+                </li>
+                <li>
+                  Building full-stack applications using MERN and Django/FastAPI
+                  with cloud deployment on AWS
+                </li>
+                <li>
+                  Managing client relationships, project scoping, timelines, and
+                  quality assurance across concurrent projects
+                </li>
+              </ul>
+              <div class="tl-tech">
+                <span>Python</span><span>MERN</span><span>Django</span
+                ><span>FastAPI</span><span>AWS</span><span>LLMs</span
+                ><span>RAG</span>
+              </div>
+              <div class="cborder"></div>
+            </div>
+          </div>
+          <div class="tl-item reveal rd-3">
+            <div class="tl-left">
+              <div class="tl-node">
+                <div class="tn-hex"></div>
+                <div class="tn-pulse"></div>
+              </div>
+              <div class="tl-spine"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tlc-header">
+                <div>
+                  <h3>Software Engineer – AI Team</h3>
+                  <span class="tl-org"
+                    ><i class="fas fa-building"></i> FTech Solutions —
+                    Dawat-e-Islami</span
+                  >
+                </div>
+                <span class="tl-date">Sept 2023 — June 2025</span>
+              </div>
+              <ul class="tl-list">
+                <li>
+                  Developed and deployed Dialogflow-based chatbots integrated
+                  with internal platforms and web applications
+                </li>
+                <li>
+                  Engineered text-to-speech, speech-to-text, and voice cloning
+                  systems for real-time communication solutions
+                </li>
+                <li>
+                  Researched, fine-tuned, and implemented LLM integrations —
+                  embeddings, prompt engineering, and model adaptation
+                </li>
+                <li>
+                  Built AI-driven Django web applications and REST APIs for
+                  workflow automation and data analytics
+                </li>
+              </ul>
+              <div class="tl-tech">
+                <span>Python</span><span>Django</span><span>Dialogflow</span
+                ><span>LLMs</span><span>TTS/STT</span><span>NLP</span
+                ><span>Docker</span>
+              </div>
+              <div class="cborder"></div>
+            </div>
+          </div>
+          <div class="tl-item reveal rd-4">
+            <div class="tl-left">
+              <div class="tl-node">
+                <div class="tn-hex"></div>
+                <div class="tn-pulse"></div>
+              </div>
+              <div class="tl-spine"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tlc-header">
+                <div>
+                  <h3>Lecturer – Computer Science</h3>
+                  <span class="tl-org"
+                    ><i class="fas fa-chalkboard-teacher"></i> SAF
+                    Collegiate</span
+                  >
+                </div>
+                <span class="tl-date">Sept 2022 — Sept 2024</span>
+              </div>
+              <ul class="tl-list">
+                <li>
+                  Delivered Computer Science lectures to Grades 9–12 covering
+                  programming fundamentals, data structures, and theory of
+                  computation
+                </li>
+                <li>
+                  Designed hands-on coding labs and custom lesson plans that
+                  improved student engagement and exam performance
+                </li>
+                <li>
+                  Mentored students in practical computing, fostering analytical
+                  and programming skills for academic and competition success
+                </li>
+              </ul>
+              <div class="tl-tech">
+                <span>Python</span><span>C++</span><span>Data Structures</span
+                ><span>Algorithms</span>
+              </div>
+              <div class="cborder"></div>
+            </div>
+          </div>
+          <div class="tl-item reveal rd-1">
+            <div class="tl-left">
+              <div class="tl-node">
+                <div class="tn-hex"></div>
+                <div class="tn-pulse"></div>
+              </div>
+              <div class="tl-spine"></div>
+            </div>
+            <div class="tl-card">
+              <div class="tlc-header">
+                <div>
+                  <h3>Chatbot Developer</h3>
+                  <span class="tl-org"
+                    ><i class="fas fa-robot"></i> Techvio Chats / Internee.pk ·
+                    Virtual Internship</span
+                  >
+                </div>
+                <span class="tl-date">Mar 2023 — May 2023</span>
+              </div>
+              <ul class="tl-list">
+                <li>
+                  Designed and developed AI-powered conversational chatbots for
+                  business use cases using NLP frameworks and custom dialogue
+                  flows
+                </li>
+                <li>
+                  Integrated bots with REST APIs and databases to enable
+                  context-aware, data-driven responses
+                </li>
+                <li>
+                  Conducted performance testing and optimization to improve
+                  response accuracy, reduce latency, and enhance user experience
+                </li>
+                <li>
+                  Gained hands-on exposure to intent classification, entity
+                  recognition, and dialogue management for scalable chatbot
+                  solutions
+                </li>
+              </ul>
+              <div class="tl-tech">
+                <span>Python</span><span>NLP</span><span>Dialogflow</span
+                ><span>REST APIs</span>
+              </div>
+              <div class="cborder"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sec-cta reveal">
+          <a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download
+            >Download Full CV <i class="fas fa-download"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="leadership" id="leadership">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sh-meta">
+            <span class="sh-idx">04</span><span class="sh-rule"></span>
+          </div>
+          <h2>Leadership & <span class="accent">Community</span></h2>
+          <p>Building the tech community — one initiative at a time.</p>
+        </div>
+        <div class="lead-grid">
+          <div class="lead-card reveal rd-1">
+            <div class="lead-icon-wrap"><i class="fas fa-microchip"></i></div>
+            <span class="lead-role">VICE CHAIR</span>
+            <h3>IEEE SSUET SB</h3>
+            <p>
+              Served as Vice Chair of the IEEE Student Branch at SSUET —
+              co-building its culture from near-scratch, growing membership,
+              credibility, and community impact year on year.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-2">
+            <div class="lead-icon-wrap"><i class="fas fa-code"></i></div>
+            <span class="lead-role">VICE CHAIR</span>
+            <h3>ACM SSUET</h3>
+            <p>
+              Co-led the ACM Student Chapter — driving competitive programming,
+              hackathons, developer programs, and establishing ACM as a pillar
+              of SSUET's tech ecosystem.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-3">
+            <div class="lead-icon-wrap"><i class="fab fa-google"></i></div>
+            <span class="lead-role">COMM & MARKETING LEAD</span>
+            <h3>GDGoC SSUET</h3>
+            <p>
+              Led all communications, content, and outreach for Google Developer
+              Groups on Campus — growing digital presence and connecting
+              students to Google's tech ecosystem.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-1">
+            <div class="lead-icon-wrap"><i class="fas fa-trophy"></i></div>
+            <span class="lead-role">DIRECTOR · STRATEGIC MENTOR</span>
+            <h3>SMEC'25</h3>
+            <p>
+              Directed the "Geeks" technical track at SSUET's annual engineering
+              convention — managing competitions, workshops, judging panels, and
+              providing strategic mentorship to teams and organizers.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-2">
+            <div class="lead-icon-wrap"><i class="fas fa-terminal"></i></div>
+            <span class="lead-role">TEAM LEAD — SPEED PROGRAMMING</span>
+            <h3>SMEC'24</h3>
+            <p>
+              Led the Speed Programming competition track — designing problem
+              sets, coordinating judging logistics, and delivering a
+              competitive, fair experience for programmers across multiple
+              universities.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-3">
+            <div class="lead-icon-wrap"><i class="fas fa-rocket"></i></div>
+            <span class="lead-role">CORE MANAGEMENT</span>
+            <h3>NASA Space Apps</h3>
+            <p>
+              Part of the core organizing team for NASA's global open innovation
+              hackathon in Karachi — managing operations, participant
+              coordination, and execution at international standard.
+            </p>
+            <div class="cborder"></div>
+          </div>
+          <div class="lead-card reveal rd-3">
+            <div class="lead-icon-wrap"><i class="fas fa-flag"></i></div>
+            <span class="lead-role">AMBASSADOR</span>
+            <h3>PAFLA</h3>
+            <p>
+              Represented the Pakistan Freelancers Association — advocating for
+              freelancers' rights, professional development, and bridging the
+              gap between freelancing and Pakistan's broader tech landscape.
+            </p>
             <div class="cborder"></div>
           </div>
         </div>
-        <div class="tl-item reveal rd-3">
-          <div class="tl-left">
-            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
-            <div class="tl-spine"></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sh-meta">
+            <span class="sh-idx">05</span><span class="sh-rule"></span>
           </div>
-          <div class="tl-card">
-            <div class="tlc-header">
-              <div><h3>Software Engineer – AI Team</h3><span class="tl-org"><i class="fas fa-building"></i> FTech Solutions — Dawat-e-Islami</span></div>
-              <span class="tl-date">Sept 2023 — June 2025</span>
+          <h2>Featured <span class="accent">Projects</span></h2>
+          <p>Selected builds from my engineering portfolio.</p>
+        </div>
+        <div class="proj-grid">
+          <div class="proj-card reveal rd-1">
+            <div class="proj-vis pvis-1">
+              <div class="pv-gridlines"></div>
+              <div class="pv-num">01</div>
+              <div class="pv-icon"><i class="fas fa-video"></i></div>
+              <div class="proj-hover">
+                <a href="#" class="btn-proj"
+                  >View Project <i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
             </div>
-            <ul class="tl-list">
-              <li>Developed and deployed Dialogflow-based chatbots integrated with internal platforms and web applications</li>
-              <li>Engineered text-to-speech, speech-to-text, and voice cloning systems for real-time communication solutions</li>
-              <li>Researched, fine-tuned, and implemented LLM integrations — embeddings, prompt engineering, and model adaptation</li>
-              <li>Built AI-driven Django web applications and REST APIs for workflow automation and data analytics</li>
-            </ul>
-            <div class="tl-tech"><span>Python</span><span>Django</span><span>Dialogflow</span><span>LLMs</span><span>TTS/STT</span><span>NLP</span><span>Docker</span></div>
+            <div class="proj-info">
+              <div class="pi-meta">
+                <span class="pi-cat">AI / Computer Vision</span
+                ><span class="pi-yr">2024</span>
+              </div>
+              <h3>AI CCTV Surveillance System</h3>
+              <p>
+                AI-based system for detecting suspicious activities in CCTV
+                footage using real-time computer vision.
+              </p>
+              <div class="pi-tags">
+                <span>Python</span><span>YOLO</span><span>OpenCV</span
+                ><span>Django</span>
+              </div>
+            </div>
+            <div class="cborder"></div>
+          </div>
+          <div class="proj-card reveal rd-2">
+            <div class="proj-vis pvis-2">
+              <div class="pv-gridlines"></div>
+              <div class="pv-num">02</div>
+              <div class="pv-icon"><i class="fas fa-calendar-alt"></i></div>
+              <div class="proj-hover">
+                <a href="#" class="btn-proj"
+                  >View Project <i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="proj-info">
+              <div class="pi-meta">
+                <span class="pi-cat">AI / Platform</span
+                ><span class="pi-yr">2023</span>
+              </div>
+              <h3>EventBridgeAI</h3>
+              <p>
+                AI-powered event discovery and management platform designed to
+                connect communities and organizations.
+              </p>
+              <div class="pi-tags">
+                <span>Laravel</span><span>Python</span><span>AI APIs</span
+                ><span>VectorDB</span>
+              </div>
+            </div>
+            <div class="cborder"></div>
+          </div>
+          <div class="proj-card reveal rd-3">
+            <div class="proj-vis pvis-3">
+              <div class="pv-gridlines"></div>
+              <div class="pv-num">03</div>
+              <div class="pv-icon"><i class="fas fa-film"></i></div>
+              <div class="proj-hover">
+                <a href="#" class="btn-proj"
+                  >View Project <i class="fas fa-external-link-alt"></i
+                ></a>
+              </div>
+            </div>
+            <div class="proj-info">
+              <div class="pi-meta">
+                <span class="pi-cat">Full Stack</span
+                ><span class="pi-yr">2023</span>
+              </div>
+              <h3>WatchHub</h3>
+              <p>
+                Entertainment tracking platform for managing movies, series, and
+                viewing history with smart recommendations.
+              </p>
+              <div class="pi-tags">
+                <span>Laravel</span><span>Django</span><span>MySQL</span>
+              </div>
+            </div>
             <div class="cborder"></div>
           </div>
         </div>
-        <div class="tl-item reveal rd-4">
-          <div class="tl-left">
-            <div class="tl-node"><div class="tn-hex"></div><div class="tn-pulse"></div></div>
-            <div class="tl-spine"></div>
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section class="techstack" id="stack">
+      <div class="container">
+        <div class="sec-head reveal">
+          <div class="sh-meta">
+            <span class="sh-idx">06</span><span class="sh-rule"></span>
           </div>
-          <div class="tl-card">
-            <div class="tlc-header">
-              <div><h3>Lecturer – Computer Science</h3><span class="tl-org"><i class="fas fa-chalkboard-teacher"></i> SAF Collegiate</span></div>
-              <span class="tl-date">Sept 2022 — Sept 2024</span>
+          <h2>Technologies I <span class="accent">Work With</span></h2>
+        </div>
+        <div class="tech-grid reveal">
+          <div class="tech-pill">
+            <i class="fab fa-python"></i><span>Python</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-brain"></i><span>LLMs / GenAI</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-project-diagram"></i><span>RAG / Agentic AI</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-link"></i><span>LangChain</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-leaf"></i><span>Django</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-bolt"></i><span>FastAPI</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-flask"></i><span>Flask</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-react"></i><span>React</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-node-js"></i><span>Node.js</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-js-square"></i><span>JavaScript</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-code"></i><span>TypeScript</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-database"></i><span>PostgreSQL</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-database"></i><span>MySQL</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-server"></i><span>MongoDB</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-vector-square"></i><span>Vector DBs</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-docker"></i><span>Docker</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-aws"></i><span>AWS</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-eye"></i><span>OpenCV / YOLO</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fas fa-infinity"></i><span>CI/CD</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-git-alt"></i><span>Git</span>
+          </div>
+          <div class="tech-pill">
+            <i class="fab fa-linux"></i><span>Linux</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-sec" id="contact">
+      <div class="cta-bg-grid"></div>
+      <div class="cta-glow-l"></div>
+      <div class="cta-glow-r"></div>
+      <div class="container">
+        <div class="cta-inner reveal">
+          <div class="cta-status">
+            <span class="status-dot"></span> Open to international opportunities
+          </div>
+          <h2 class="cta-title">
+            Interested in building<br /><span class="accent"
+              >intelligent systems</span
+            ><br />or scalable platforms?
+          </h2>
+          <p class="cta-body">
+            Whether it's an international AI role, a collaboration, a freelance
+            project, or just a genuine tech conversation — I'm always open to
+            connecting with builders and innovators.
+          </p>
+          <div class="cta-btns">
+            <a href="mailto:nabeel.dev.ai@gmail.com" class="btn-primary-dark"
+              ><i class="fas fa-handshake"></i> Work With Me</a
+            >
+            <a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download
+              ><i class="fas fa-download"></i> Download CV</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <a href="#hero" class="logo"
+              ><span class="logo-prefix">sys</span
+              ><span class="logo-slash">/</span
+              ><span class="logo-name">nabeel</span
+              ><span class="logo-cursor-blink">_</span></a
+            >
+            <p>
+              Senior AI Engineer · Team Lead<br />Building AI that holds at
+              scale.
+            </p>
+          </div>
+          <div class="footer-nav">
+            <h4>Navigation</h4>
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+          </div>
+          <div class="footer-social">
+            <h4>Connect</h4>
+            <div class="social-icons">
+              <a
+                href="https://github.com/NabeelSohail-30"
+                class="si"
+                aria-label="GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/nabeel30/"
+                class="si"
+                aria-label="LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/coder_nabeel30/"
+                class="si"
+                aria-label="Instagram"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="mailto:nabeel.dev.ai@gmail.com"
+                class="si"
+                aria-label="Email"
+                ><i class="fas fa-envelope"></i
+              ></a>
             </div>
-            <ul class="tl-list">
-              <li>Delivered Computer Science lectures to Grades 9–12 covering programming fundamentals, data structures, and theory of computation</li>
-              <li>Designed hands-on coding labs and custom lesson plans that improved student engagement and exam performance</li>
-              <li>Mentored students in practical computing, fostering analytical and programming skills for academic and competition success</li>
-            </ul>
-            <div class="tl-tech"><span>Python</span><span>C++</span><span>Data Structures</span><span>Algorithms</span></div>
-            <div class="cborder"></div>
           </div>
         </div>
+        <div class="footer-bottom">
+          <div class="fb-line"></div>
+          <span
+            >© <span id="footerYear"></span> Mohammad Nabeel Sohail · Crafted
+            with precision</span
+          >
+        </div>
       </div>
-      <div class="sec-cta reveal"><a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download>Download Full CV <i class="fas fa-download"></i></a></div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- LEADERSHIP -->
-  <section class="leadership" id="leadership">
-    <div class="container">
-      <div class="sec-head reveal">
-        <div class="sh-meta"><span class="sh-idx">04</span><span class="sh-rule"></span></div>
-        <h2>Leadership & <span class="accent">Community</span></h2>
-        <p>Building the tech community — one initiative at a time.</p>
-      </div>
-      <div class="lead-grid">
-        <div class="lead-card reveal rd-1">
-          <div class="lead-icon-wrap"><i class="fas fa-microchip"></i></div>
-          <span class="lead-role">VICE CHAIR</span>
-          <h3>IEEE SSUET SB</h3>
-          <p>Served as Vice Chair of the IEEE Student Branch at SSUET — co-building its culture from near-scratch, growing membership, credibility, and community impact year on year.</p>
-          <div class="cborder"></div>
-        </div>
-        <div class="lead-card reveal rd-2">
-          <div class="lead-icon-wrap"><i class="fas fa-code"></i></div>
-          <span class="lead-role">VICE CHAIR</span>
-          <h3>ACM SSUET</h3>
-          <p>Co-led the ACM Student Chapter — driving competitive programming, hackathons, developer programs, and establishing ACM as a pillar of SSUET's tech ecosystem.</p>
-          <div class="cborder"></div>
-        </div>
-        <div class="lead-card reveal rd-3">
-          <div class="lead-icon-wrap"><i class="fab fa-google"></i></div>
-          <span class="lead-role">COMM & MARKETING LEAD</span>
-          <h3>GDGoC SSUET</h3>
-          <p>Led all communications, content, and outreach for Google Developer Groups on Campus — growing digital presence and connecting students to Google's tech ecosystem.</p>
-          <div class="cborder"></div>
-        </div>
-        <div class="lead-card reveal rd-1">
-          <div class="lead-icon-wrap"><i class="fas fa-trophy"></i></div>
-          <span class="lead-role">DIRECTOR · STRATEGIC MENTOR</span>
-          <h3>SMEC'25</h3>
-          <p>Directed the "Geeks" technical track at SSUET's annual engineering convention — managing competitions, workshops, judging panels, and mentoring participating teams.</p>
-          <div class="cborder"></div>
-        </div>
-        <div class="lead-card reveal rd-2">
-          <div class="lead-icon-wrap"><i class="fas fa-rocket"></i></div>
-          <span class="lead-role">CORE MANAGEMENT</span>
-          <h3>NASA Space Apps</h3>
-          <p>Part of the core organizing team for NASA's global open innovation hackathon in Karachi — managing operations, participant coordination, and execution at international standard.</p>
-          <div class="cborder"></div>
-        </div>
-        <div class="lead-card reveal rd-3">
-          <div class="lead-icon-wrap"><i class="fas fa-flag"></i></div>
-          <span class="lead-role">AMBASSADOR</span>
-          <h3>PAFLA</h3>
-          <p>Represented the Pakistan Freelancers Association — advocating for freelancers' rights, professional development, and bridging the gap between freelancing and Pakistan's broader tech landscape.</p>
-          <div class="cborder"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="projects" id="projects">
-    <div class="container">
-      <div class="sec-head reveal">
-        <div class="sh-meta"><span class="sh-idx">05</span><span class="sh-rule"></span></div>
-        <h2>Featured <span class="accent">Projects</span></h2>
-        <p>Selected builds from my engineering portfolio.</p>
-      </div>
-      <div class="proj-grid">
-        <div class="proj-card reveal rd-1">
-          <div class="proj-vis pvis-1">
-            <div class="pv-gridlines"></div>
-            <div class="pv-num">01</div>
-            <div class="pv-icon"><i class="fas fa-video"></i></div>
-            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
-          </div>
-          <div class="proj-info">
-            <div class="pi-meta"><span class="pi-cat">AI / Computer Vision</span><span class="pi-yr">2024</span></div>
-            <h3>AI CCTV Surveillance System</h3>
-            <p>AI-based system for detecting suspicious activities in CCTV footage using real-time computer vision.</p>
-            <div class="pi-tags"><span>Python</span><span>YOLO</span><span>OpenCV</span><span>Django</span></div>
-          </div>
-          <div class="cborder"></div>
-        </div>
-        <div class="proj-card reveal rd-2">
-          <div class="proj-vis pvis-2">
-            <div class="pv-gridlines"></div>
-            <div class="pv-num">02</div>
-            <div class="pv-icon"><i class="fas fa-calendar-alt"></i></div>
-            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
-          </div>
-          <div class="proj-info">
-            <div class="pi-meta"><span class="pi-cat">AI / Platform</span><span class="pi-yr">2023</span></div>
-            <h3>EventBridgeAI</h3>
-            <p>AI-powered event discovery and management platform designed to connect communities and organizations.</p>
-            <div class="pi-tags"><span>Laravel</span><span>Python</span><span>AI APIs</span><span>VectorDB</span></div>
-          </div>
-          <div class="cborder"></div>
-        </div>
-        <div class="proj-card reveal rd-3">
-          <div class="proj-vis pvis-3">
-            <div class="pv-gridlines"></div>
-            <div class="pv-num">03</div>
-            <div class="pv-icon"><i class="fas fa-film"></i></div>
-            <div class="proj-hover"><a href="#" class="btn-proj">View Project <i class="fas fa-external-link-alt"></i></a></div>
-          </div>
-          <div class="proj-info">
-            <div class="pi-meta"><span class="pi-cat">Full Stack</span><span class="pi-yr">2023</span></div>
-            <h3>WatchHub</h3>
-            <p>Entertainment tracking platform for managing movies, series, and viewing history with smart recommendations.</p>
-            <div class="pi-tags"><span>Laravel</span><span>Django</span><span>MySQL</span></div>
-          </div>
-          <div class="cborder"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TECH STACK -->
-  <section class="techstack" id="stack">
-    <div class="container">
-      <div class="sec-head reveal">
-        <div class="sh-meta"><span class="sh-idx">06</span><span class="sh-rule"></span></div>
-        <h2>Technologies I <span class="accent">Work With</span></h2>
-      </div>
-      <div class="tech-grid reveal">
-        <div class="tech-pill"><i class="fab fa-python"></i><span>Python</span></div>
-        <div class="tech-pill"><i class="fas fa-brain"></i><span>LLMs / GenAI</span></div>
-        <div class="tech-pill"><i class="fas fa-project-diagram"></i><span>RAG / Agentic AI</span></div>
-        <div class="tech-pill"><i class="fas fa-leaf"></i><span>Django</span></div>
-        <div class="tech-pill"><i class="fas fa-bolt"></i><span>FastAPI</span></div>
-        <div class="tech-pill"><i class="fab fa-react"></i><span>React</span></div>
-        <div class="tech-pill"><i class="fab fa-node-js"></i><span>Node.js</span></div>
-        <div class="tech-pill"><i class="fab fa-js-square"></i><span>JavaScript</span></div>
-        <div class="tech-pill"><i class="fas fa-database"></i><span>PostgreSQL</span></div>
-        <div class="tech-pill"><i class="fas fa-leaf"></i><span>MongoDB</span></div>
-        <div class="tech-pill"><i class="fab fa-docker"></i><span>Docker</span></div>
-        <div class="tech-pill"><i class="fab fa-aws"></i><span>AWS</span></div>
-        <div class="tech-pill"><i class="fas fa-eye"></i><span>OpenCV / YOLO</span></div>
-        <div class="tech-pill"><i class="fas fa-infinity"></i><span>CI/CD</span></div>
-        <div class="tech-pill"><i class="fab fa-git-alt"></i><span>Git</span></div>
-        <div class="tech-pill"><i class="fab fa-linux"></i><span>Linux</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
-  <section class="cta-sec" id="contact">
-    <div class="cta-bg-grid"></div>
-    <div class="cta-glow-l"></div>
-    <div class="cta-glow-r"></div>
-    <div class="container">
-      <div class="cta-inner reveal">
-        <div class="cta-status"><span class="status-dot"></span> Open to international opportunities</div>
-        <h2 class="cta-title">Interested in building<br/><span class="accent">intelligent systems</span><br/>or scalable platforms?</h2>
-        <p class="cta-body">Whether it's an international AI role, a collaboration, a freelance project, or just a genuine tech conversation — I'm always open to connecting with builders and innovators.</p>
-        <div class="cta-btns">
-          <a href="mailto:nabeel.dev.ai@gmail.com" class="btn-primary-dark"><i class="fas fa-handshake"></i> Work With Me</a>
-          <a href="NabeelSohail-CV.pdf" class="btn-ghost-dark" download><i class="fas fa-download"></i> Download CV</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="#hero" class="logo"><span class="logo-prefix">sys</span><span class="logo-slash">/</span><span class="logo-name">nabeel</span><span class="logo-cursor-blink">_</span></a>
-          <p>Senior AI Engineer · Team Lead<br/>Building AI that holds at scale.</p>
-        </div>
-        <div class="footer-nav">
-          <h4>Navigation</h4>
-          <a href="#hero">Home</a>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-        </div>
-        <div class="footer-social">
-          <h4>Connect</h4>
-          <div class="social-icons">
-            <a href="https://github.com/NabeelSohail-30" class="si" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/nabeel30/" class="si" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:nabeel.dev.ai@gmail.com" class="si" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="fb-line"></div>
-        <span>© 2025 Mohammad Nabeel Sohail · Crafted with precision</span>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/script.js"></script>
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>

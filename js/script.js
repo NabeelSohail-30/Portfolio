@@ -186,6 +186,9 @@ revealEls.forEach(el => revealObs.observe(el));
     'Loading engineer data...',
     'Systems online.',
     'Ready to build.',
+    '🇬🇧 British National',
+    'Based in Karachi, PK',
+    'Open to Relocation & Remote',
   ];
 
   let seqIdx = 0, charIdx = 0, lineIdx = 0, phase = 'typing';

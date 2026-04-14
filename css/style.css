@@ -2233,3 +2233,398 @@ section {
   padding: 0 16px;
   display: block;
 }
+
+/* ================================================
+   EDUCATION & CERTIFICATIONS
+   ================================================ */
+.edu-certs {
+  padding: 100px 0;
+  background: var(--bg);
+}
+.ec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 48px;
+}
+.ec-col-head {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.edu-item {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 14px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.3s;
+}
+.edu-item:hover {
+  border-color: rgba(58, 78, 255, 0.35);
+}
+.edu-item--sm {
+  padding: 14px 20px;
+}
+.edu-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  background: rgba(58, 78, 255, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(58, 78, 255, 0.3);
+  border-radius: 4px;
+  padding: 6px 10px;
+  letter-spacing: 1px;
+  min-width: 46px;
+  text-align: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.edu-badge--sm {
+  background: rgba(74, 94, 120, 0.12);
+  color: var(--text-2);
+  border-color: rgba(74, 94, 120, 0.25);
+}
+.edu-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.edu-body h4 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-1);
+  margin: 0;
+}
+.edu-inst {
+  font-size: 12px;
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.edu-period {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--accent);
+  letter-spacing: 0.5px;
+}
+.edu-note {
+  font-size: 12.5px;
+  color: var(--text-3);
+  line-height: 1.6;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+/* Certifications */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.cert-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 13px 16px;
+  transition: border-color 0.3s;
+}
+.cert-item:hover {
+  border-color: rgba(58, 78, 255, 0.3);
+}
+.cert-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(58, 78, 255, 0.1);
+  border: 1px solid rgba(58, 78, 255, 0.2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.cert-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cert-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-1);
+}
+.cert-issuer {
+  font-size: 11px;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+}
+
+/* ================================================
+   WHY ME
+   ================================================ */
+.why-me {
+  padding: 100px 0;
+  background: rgba(6, 6, 16, 0.98);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 48px;
+}
+.why-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 26px 22px;
+  position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.why-card:hover {
+  border-color: rgba(58, 78, 255, 0.35);
+  transform: translateY(-4px);
+}
+.why-card:hover::before {
+  opacity: 1;
+}
+.why-icon {
+  width: 42px;
+  height: 42px;
+  background: rgba(58, 78, 255, 0.1);
+  border: 1px solid rgba(58, 78, 255, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+.why-card h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 0 0 9px;
+}
+.why-card p {
+  font-size: 13px;
+  color: var(--text-3);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ================================================
+   CONTACT SECTION
+   ================================================ */
+.contact-sec {
+  padding-top: 60px;
+  padding-bottom: 100px;
+}
+.contact-sec .sec-head {
+  text-align: center;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 48px;
+  margin-top: 16px;
+  align-items: start;
+}
+.contact-info h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin: 16px 0 20px;
+}
+.ci-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.ci-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.ci-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(58, 78, 255, 0.1);
+  border: 1px solid rgba(58, 78, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.ci-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.ci-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-3);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.ci-val {
+  font-size: 14px;
+  color: var(--text-1);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+a.ci-val:hover {
+  color: var(--accent);
+}
+.ci-social {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+/* Contact Form */
+.contact-form-col {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 30px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.cf-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.cf-field label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-2);
+}
+.cf-field input,
+.cf-field select,
+.cf-field textarea {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 14px;
+  color: var(--text-1);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  outline: none;
+  transition: border-color 0.25s;
+  width: 100%;
+  box-sizing: border-box;
+}
+.cf-field input:focus,
+.cf-field select:focus,
+.cf-field textarea:focus {
+  border-color: var(--accent);
+}
+.cf-field select {
+  appearance: none;
+  cursor: pointer;
+  color: var(--text-2);
+}
+.cf-field select option {
+  background: var(--bg);
+  color: var(--text-1);
+}
+.cf-field textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.cf-field input::placeholder,
+.cf-field textarea::placeholder {
+  color: var(--text-3);
+  opacity: 0.7;
+}
+.cf-submit {
+  width: 100%;
+  justify-content: center;
+}
+.cf-btn-text,
+.cf-btn-loading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.cf-success {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4ade80;
+  font-size: 12.5px;
+  padding: 10px 14px;
+  background: rgba(74, 222, 128, 0.06);
+  border: 1px solid rgba(74, 222, 128, 0.2);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+}
+
+/* Responsive — new sections */
+@media (max-width: 900px) {
+  .ec-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+  .cf-row {
+    grid-template-columns: 1fr;
+  }
+}

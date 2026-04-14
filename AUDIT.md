@@ -67,33 +67,6 @@ Even if some are private or NDA'd, a portfolio page should show at least 5–6 e
 
 ---
 
-### 2.7 Missing Sections
-
-These sections exist in content.md but have no representation on the portfolio:
-
-| Missing Section | Why It Matters |
-|---|---|
-| **Education** | BSCS from SSUET 2021–2025 — shows formal CS foundation, institution credibility |
-| **Certifications** | 7 certs (AWS, Azure, DataCamp, Cisco, IBA) — each one is a trust signal and searchable keyword |
-| **Testimonials / Recommendations** | The single highest-conversion element on any portfolio. Even 1–2 LinkedIn recommendations as pull-quotes dramatically increases trust |
-| **Contact Form** | Mailto links have ~40% lower conversion than in-page forms. Clients want to message without opening their email app |
-| **"Why Me" / Differentiators** | Your British nationality + scale experience + AI leadership + community impact is a rare combo. It needs a dedicated section or prominent callout |
-
----
-
-### 2.8 CTA / Contact Section
-
-**What's working:**
-- "Open to international opportunities" status is good
-- Both buttons (Work With Me + Download CV) are clear
-
-**Issues:**
-
-**No email address visibly displayed.** Both buttons are `mailto:` links but the actual address (`nabeel.dev.ai@gmail.com`) isn't visible. Some people want to copy the address or know they're not being routed to a form. Show it.
-
-**No contact form.** A form keeps users on the page. Mailto opens their email client, which breaks the flow and has spam/mobile friction.
-
-**Phone number missing entirely.** Content.md has `+92-345-3628868`. If you're comfortable showing it, add it. Clients in Pakistan especially prefer calling/WhatsApp.
 
 ---
 

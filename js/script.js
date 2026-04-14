@@ -285,6 +285,44 @@ document.querySelectorAll('.proj-card, .svc-card').forEach(card => {
 const yearEl = document.getElementById('footerYear');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+// ---- CONTACT FORM ----
+(function initContactForm() {
+  const form = document.getElementById('contactForm');
+  if (!form) return;
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value;
+    const message = document.getElementById('cf-message').value.trim();
+    if (!name || !email || !message) return;
+
+    const btnText   = form.querySelector('.cf-btn-text');
+    const btnLoad   = form.querySelector('.cf-btn-loading');
+    const successEl = document.getElementById('cfSuccess');
+    const submitBtn = document.getElementById('cfSubmit');
+
+    btnText.style.display = 'none';
+    btnLoad.style.display = 'inline-flex';
+    submitBtn.disabled = true;
+
+    const sub  = subject ? '[Portfolio] ' + subject + ' — ' + name : '[Portfolio] Message from ' + name;
+    const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+    const url  = 'mailto:nabeel.dev.ai@gmail.com?subject=' + encodeURIComponent(sub) + '&body=' + encodeURIComponent(body);
+
+    setTimeout(function() {
+      window.location.href = url;
+      btnText.style.display = 'inline-flex';
+      btnLoad.style.display = 'none';
+      submitBtn.disabled = false;
+      successEl.style.display = 'flex';
+      form.reset();
+      setTimeout(function() { successEl.style.display = 'none'; }, 6000);
+    }, 900);
+  });
+})();
+
 // ---- TECH PILL STAGGER ON SCROLL ----
 const techObs = new IntersectionObserver(entries => {
   entries.forEach(e => {

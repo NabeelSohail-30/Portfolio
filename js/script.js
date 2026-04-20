@@ -66,7 +66,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const target = document.querySelector(a.getAttribute('href'));
     if (target) {
       e.preventDefault();
-      window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+      window.scrollTo({ top: target.offsetTop - 66 });
     }
   });
 });
@@ -260,7 +260,7 @@ function highlightNav() {
     if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
       const id = sec.getAttribute('id');
       navLinks.querySelectorAll('.nav-item').forEach(a => {
-        a.style.color = a.getAttribute('href') === '#' + id ? 'var(--accent)' : '';
+        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
       });
     }
   });
@@ -268,7 +268,7 @@ function highlightNav() {
 window.addEventListener('scroll', highlightNav, { passive: true });
 
 // ---- CARD TILT ----
-document.querySelectorAll('.proj-card, .svc-card').forEach(card => {
+document.querySelectorAll('.proj-card, .svc-card, .lead-card').forEach(card => {
   card.addEventListener('mousemove', e => {
     const r = card.getBoundingClientRect();
     const x = (e.clientX - r.left) / r.width  - 0.5;
@@ -346,4 +346,15 @@ if (techGrid) {
     p.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
   });
   techObs.observe(techGrid);
+}
+
+// ---- BACK TO TOP ----
+const backTop = document.getElementById('backTop');
+if (backTop) {
+  window.addEventListener('scroll', () => {
+    backTop.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+  backTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0 });
+  });
 }

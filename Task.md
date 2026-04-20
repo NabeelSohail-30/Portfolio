@@ -1,18 +1,34 @@
-### 2.7 Missing Sections
+## 3. UX / UI AUDIT
 
-These sections exist in content.md but have no representation on the portfolio:
+### 3.1 Navigation
 
-| Missing Section | Why It Matters |
-|---|---|
-| **Education** | shows formal CS foundation, institution credibility |
-| **Certifications** | 7 certs (AWS, Azure, DataCamp, Cisco, IBA) — each one is a trust signal and searchable keyword |
-| **Contact Form** | Mailto links have ~40% lower conversion than in-page forms. Clients want to message without opening their email app |
-| **"Why Me" / Differentiators** | Your British nationality + scale experience + AI leadership + community impact is a rare combo. It needs a dedicated section or prominent callout |
+| Issue | Severity | Fix |
+|---|---|---|
+| Leadership section missing from nav | Medium | Add `<a href="#leadership">` |
+| Only 4 items in footer nav | Low | Add Leadership, Stack, Contact |
+| No "Back to Top" button | Low | Add fixed button after ~3 sections |
+| Active nav highlighting uses `style.color` not class | Low | Use `classList.toggle('active')` for reliability |
+
+### 3.2 Hero
+
+| Issue | Severity | Fix |
+|---|---|---|
+| 3 CTA buttons — decision paralysis | Medium | Reduce to 2 (View Work + Download CV) |
+
+### 3.3 Cards & Layout
+
+| Issue | Severity | Fix |
+|---|---|---|
+| 7 leadership cards — orphaned 7th in 3-col grid | Low | Go to 6 or 8 cards |
+| Card tilt effect missing from `lead-card` | Low | Add `lead-card` to JS tilt selector |
+| No visual differentiation between job types in timeline | Low | Add role-type badge (Full-time / Freelance / Internship) |
+
+### 3.4 Scroll & Interaction
+
+| Issue | Severity | Fix |
+|---|---|---|
+| Scroll offset `-70` but navbar is `66px` — 4px gap | Low | Change to `target.offsetTop - 66` |
+| Smooth scroll in CSS + JS — redundant (not harmful) | Low | Remove JS smooth scroll or remove CSS `scroll-behavior: smooth` |
+| No `prefers-reduced-motion` check | Medium | Wrap animations |
 
 ---
-
-### 2.8 CTA / Contact Section
-
-**No email address visibly displayed.** Both buttons are `mailto:` links but the actual address (`nabeel.dev.ai@gmail.com`) isn't visible. Some people want to copy the address or know they're not being routed to a form. Show it.
-
-**Phone number missing entirely.** Content.md has `+92-345-3628868`. add it. Clients in Pakistan especially prefer calling/WhatsApp.

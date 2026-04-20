@@ -364,6 +364,12 @@ section {
 .rd-4 {
   transition-delay: 0.32s;
 }
+.rd-5 {
+  transition-delay: 0.40s;
+}
+.rd-6 {
+  transition-delay: 0.48s;
+}
 
 /* ================================================
    NAVBAR
@@ -1639,6 +1645,12 @@ section {
     rgba(108, 99, 255, 0.15) 100%
   );
 }
+.pvis-4 {
+  background: linear-gradient(135deg, #050a0f 0%, rgba(74, 222, 128, 0.12) 100%);
+}
+.pvis-5 {
+  background: linear-gradient(135deg, #050a0f 0%, rgba(251, 146, 60, 0.12) 100%);
+}
 
 .pv-gridlines {
   position: absolute;
@@ -2627,4 +2639,41 @@ a.ci-val:hover {
   .cf-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---- BACK TO TOP ---- */
+.back-top {
+  position: fixed;
+  bottom: 32px;
+  right: 28px;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(58, 78, 255, 0.12);
+  border: 1px solid rgba(58, 78, 255, 0.35);
+  color: var(--accent);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.3s, transform 0.3s, background 0.2s, box-shadow 0.2s;
+  z-index: 900;
+}
+.back-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.back-top:hover {
+  background: rgba(58, 78, 255, 0.25);
+  box-shadow: 0 0 14px rgba(58, 78, 255, 0.4);
+}
+
+/* ---- ACTIVE NAV ITEM ---- */
+.nav-item.active {
+  color: var(--accent);
 }

@@ -43,15 +43,11 @@ All three project "View Project" buttons link to `href="#"`. This is the worst t
 
 ---
 
-### 1.5 No Favicon
+### 1.5 No Favicon ✅ DONE
 **Severity: Medium — visible in browser tab and bookmarks**  
-No favicon defined. Browser shows a blank/generic icon. This matters: it's part of brand recognition and professional polish.
+~~No favicon defined. Browser shows a blank/generic icon.~~
 
-**Fix:** Create a minimal favicon — the `sys/nabeel_` monogram or just `N` in accent blue on dark background works. Add:
-```html
-<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
-<link rel="icon" type="image/png" href="favicon.png"/>
-```
+**Fixed:** `favicon.svg` created (dark bg + blue `N` monogram). Both SVG and PNG link tags added to `<head>`.
 
 
 ### 2.5 Projects Section
@@ -215,9 +211,9 @@ These sections exist in content.md but have no representation on the portfolio:
 
 ---
 
-## 7. SEO — COMPLETE IMPLEMENTATION
+## 7. SEO — COMPLETE IMPLEMENTATION ✅ DONE
 
-Add the following to `<head>` in `index.html`. Replace placeholders once you have a live URL and real OG image.
+~~Add the following to `<head>` in `index.html`.~~ **Implemented** with live URL `https://nabeelsohail-30.github.io/Portfolio/`. Pending: create `og-image.jpg` (1200×630px screenshot) for social sharing previews.
 
 ```html
 <!-- Base SEO -->
@@ -329,8 +325,8 @@ At minimum, pull 2–3 pinned GitHub repos into the Projects section. Even if pr
 |---|---|---|
 | 1 | Get a personal photo taken / select best existing photo | — |
 | 2 | Replace both stock images with real photos | 30 min |
-| 3 | Add all SEO meta tags (description, OG, Twitter, JSON-LD) | 45 min |
-| 4 | Create and add favicon | 20 min |
+| 3 | ~~Add all SEO meta tags (description, OG, Twitter, JSON-LD)~~ ✅ | 45 min |
+| 4 | ~~Create and add favicon~~ ✅ | 20 min |
 | 5 | Fix HUD pills "AI" → "GenAI / LLMs" | 5 min |
 | 6 | Add personal nationality badge to hero | 15 min |
 | 7 | Fix project links (GitHub or "available on request") | 30 min |

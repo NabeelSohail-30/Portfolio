@@ -2,6 +2,41 @@
    NABEEL SOHAIL — DEEP SPACE TERMINAL JS
    ================================================ */
 
+// ---- LOADER ----
+(function initLoader() {
+  const loader    = document.getElementById('loader');
+  const linesEl   = document.getElementById('loaderLines');
+  const barEl     = document.getElementById('loaderBar');
+  const statusEl  = document.getElementById('loaderStatus');
+  if (!loader) return;
+
+  const steps = [
+    { text: '[ ok ]  system environment loaded',  bar: 25,  status: 'loading modules...' },
+    { text: '[ ok ]  ai modules initialized',      bar: 50,  status: 'rendering interface...' },
+    { text: '[ ok ]  portfolio data compiled',     bar: 75,  status: 'launching...' },
+    { text: '[ ok ]  ready to connect',            bar: 100, status: 'welcome.' },
+  ];
+
+  let i = 0;
+  function nextStep() {
+    if (i >= steps.length) {
+      setTimeout(() => loader.classList.add('hidden'), 400);
+      return;
+    }
+    const s    = steps[i++];
+    const line = document.createElement('div');
+    line.className = 'loader-line';
+    line.innerHTML = `<span class="ll-ok">${s.text}</span>`;
+    linesEl.appendChild(line);
+    requestAnimationFrame(() => requestAnimationFrame(() => line.classList.add('show')));
+    barEl.style.width    = s.bar + '%';
+    statusEl.textContent = s.status;
+    setTimeout(nextStep, 420);
+  }
+
+  setTimeout(nextStep, 300);
+})();
+
 // ---- CUSTOM CURSOR ----
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');

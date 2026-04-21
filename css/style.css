@@ -1651,6 +1651,9 @@ section {
 .pvis-5 {
   background: linear-gradient(135deg, #050a0f 0%, rgba(251, 146, 60, 0.12) 100%);
 }
+.pvis-6 {
+  background: linear-gradient(135deg, #050a0f 0%, rgba(167, 139, 250, 0.12) 100%);
+}
 
 .pv-gridlines {
   position: absolute;

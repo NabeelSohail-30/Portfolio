@@ -256,15 +256,21 @@ revealEls.forEach(el => revealObs.observe(el));
 
 // ---- ACTIVE NAV HIGHLIGHTING ----
 const sections = document.querySelectorAll('section[id]');
+let navRafPending = false;
 function highlightNav() {
-  const pos = window.scrollY + 90;
-  sections.forEach(sec => {
-    if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
-      const id = sec.getAttribute('id');
-      navLinks.querySelectorAll('.nav-item').forEach(a => {
-        a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-      });
-    }
+  if (navRafPending) return;
+  navRafPending = true;
+  requestAnimationFrame(() => {
+    const pos = window.scrollY + 90;
+    sections.forEach(sec => {
+      if (pos >= sec.offsetTop && pos < sec.offsetTop + sec.offsetHeight) {
+        const id = sec.getAttribute('id');
+        navLinks.querySelectorAll('.nav-item').forEach(a => {
+          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+    navRafPending = false;
   });
 }
 window.addEventListener('scroll', highlightNav, { passive: true });

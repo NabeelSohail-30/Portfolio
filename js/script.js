@@ -115,7 +115,8 @@ revealEls.forEach(el => revealObs.observe(el));
     }
   }
 
-  for (let i = 0; i < 110; i++) particles.push(new Particle());
+  const particleCount = window.innerWidth < 768 ? 50 : 110;
+  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
 
   function drawConnections() {
     const maxDist = 120;

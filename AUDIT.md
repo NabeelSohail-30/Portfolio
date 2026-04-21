@@ -109,8 +109,8 @@ These sections exist in content.md but have no representation on the portfolio:
 | Issue | Severity | Fix |
 |---|---|---|
 | 3 CTA buttons — decision paralysis | Medium | Reduce to 2 (View Work + Download CV) |
-| HUD pills showing "AI" not "GenAI / LLMs" | Medium | Fix the text regression |
-| No nationality/mobility signal | Medium | Add `🇬🇧 British National · Open to Relocation` badge |
+| ~~HUD pills showing "AI" not "GenAI / LLMs"~~ | ~~Medium~~ | N/A — intentional |
+| ~~No nationality/mobility signal~~ | ~~Medium~~ | N/A — covered in footer + contact |
 | Stock photo in HUD frame | Critical | Replace with real photo |
 
 ### 3.3 Cards & Layout
@@ -128,7 +128,7 @@ These sections exist in content.md but have no representation on the portfolio:
 |---|---|---|
 | Scroll offset `-70` but navbar is `66px` — 4px gap | Low | Change to `target.offsetTop - 66` |
 | Smooth scroll in CSS + JS — redundant (not harmful) | Low | Remove JS smooth scroll or remove CSS `scroll-behavior: smooth` |
-| No `prefers-reduced-motion` check | Medium | Wrap animations — see Section 6 |
+| ~~No `prefers-reduced-motion` check~~ | ~~Medium~~ | ✅ Done |
 
 ---
 
@@ -138,8 +138,8 @@ These sections exist in content.md but have no representation on the portfolio:
 
 | Issue | Severity |
 |---|---|
-| Missing `<main>` element wrapping all sections | Medium (accessibility + SEO) |
-| Missing skip-to-content link | Medium (accessibility) |
+| ~~Missing `<main>` element wrapping all sections~~ | ✅ Done |
+| ~~Missing skip-to-content link~~ | ✅ Done |
 | No `<meta name="description">` | Critical (SEO) |
 | No Open Graph / Twitter Card meta tags | Critical (social sharing) |
 | No favicon | Medium |
@@ -185,14 +185,14 @@ These sections exist in content.md but have no representation on the portfolio:
 
 | Issue | Severity | Fix |
 |---|---|---|
-| `cursor: none` on body — keyboard users and accessibility tools lose the cursor | High | Add `@media (pointer: coarse)` fallback + `prefers-reduced-motion` |
-| No visible focus ring — custom cursor masks native focus indicator | High | Add `:focus-visible` outline: `*:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }` |
-| No skip navigation link | High | Add `<a href="#main-content" class="skip-link">Skip to content</a>` before navbar |
-| Missing `<main>` landmark | Medium | Wrap all `<section>` elements in `<main id="main-content">` |
+| ~~`cursor: none` on body — keyboard users and accessibility tools lose the cursor~~ | ✅ Done — `@media (pointer: coarse)` added |
+| ~~No visible focus ring~~ | ✅ Done — `:focus-visible` outline added |
+| ~~No skip navigation link~~ | ✅ Done |
+| ~~Missing `<main>` landmark~~ | ✅ Done |
 | Some social icon links lack descriptive `aria-label` — Instagram was added correctly | Low | Verify all social icons have aria-label |
 | Color contrast — accent blue `#3A4EFF` on dark `#050A0F` | Medium | Verify WCAG AA ratio (4.5:1 required for normal text). Blue on very dark may pass but should be tested with a contrast checker |
 | Images use generic alt text (`"Developer workspace"`, `"Developer at work"`) | Low | After replacing with real photos, use descriptive alt text |
-| Hamburger button has `aria-label="Toggle menu"` ✓ but no `aria-expanded` attribute | Low | Add `aria-expanded="false"` and toggle it in JS |
+| ~~Hamburger button has no `aria-expanded` attribute~~ | ✅ Done |
 
 ---
 
@@ -327,8 +327,8 @@ At minimum, pull 2–3 pinned GitHub repos into the Projects section. Even if pr
 | 2 | Replace both stock images with real photos | 30 min |
 | 3 | ~~Add all SEO meta tags (description, OG, Twitter, JSON-LD)~~ ✅ | 45 min |
 | 4 | ~~Create and add favicon~~ ✅ | 20 min |
-| 5 | Fix HUD pills "AI" → "GenAI / LLMs" | 5 min |
-| 6 | Add personal nationality badge to hero | 15 min |
+| ~~5~~ | ~~Fix HUD pills "AI" → "GenAI / LLMs"~~ | N/A |
+| ~~6~~ | ~~Add personal nationality badge to hero~~ | N/A |
 | 7 | Fix project links (GitHub or "available on request") | 30 min |
 
 ### Phase 2 — Brand Optimization (before promoting heavily)
@@ -343,10 +343,10 @@ At minimum, pull 2–3 pinned GitHub repos into the Projects section. Even if pr
 | 13 | Fix 7-card leadership grid (make 6 or 8) | 15 min |
 | 14 | Reduce CTA buttons from 3 to 2 in hero | 5 min |
 | 15 | Add role-type badge to timeline entries | 20 min |
-| 16 | Add `prefers-reduced-motion` CSS rule | 10 min |
-| 17 | Add `@media (pointer: coarse)` cursor reset | 5 min |
-| 18 | Add `:focus-visible` outline styles | 10 min |
-| 19 | Add `<main>` wrapper and skip-to-content link | 10 min |
+| 16 | ~~Add `prefers-reduced-motion` CSS rule~~ ✅ | 10 min |
+| 17 | ~~Add `@media (pointer: coarse)` cursor reset~~ ✅ | 5 min |
+| 18 | ~~Add `:focus-visible` outline styles~~ ✅ | 10 min |
+| 19 | ~~Add `<main>` wrapper and skip-to-content link~~ ✅ | 10 min |
 | 20 | Add `.rd-5` and `.rd-6` transition delays in CSS | 5 min |
 
 ### Phase 3 — Growth & Conversion (ongoing)

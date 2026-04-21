@@ -51,6 +51,7 @@ const navLinks  = document.getElementById('navLinks');
 hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('active');
   navLinks.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', navLinks.classList.contains('open'));
 });
 
 navLinks.querySelectorAll('a').forEach(l => {
